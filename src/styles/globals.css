@@ -1,0 +1,85 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-color: #1f1f1f;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Selection color */
+::selection {
+  background: #10b981;
+  opacity: 0.5;
+}
+
+/* Custom scroll bar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1f1f1f;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #393939;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #10b981;
+}
+
+/* Pulsing stroke effect */
+.animate-text-outline-emerald {
+  animation: pulse 7s infinite ease-in-out;
+  color: #1f1f1f;
+  -webkit-text-stroke-width: 5px;
+  -webkit-animation: pulse 7s infinite ease-in-out;
+  -moz-animation: pulse 7s infinite ease-in-out;
+  -o-animation: pulse 7s infinite ease-in-out;
+  -ms-animation: pulse 7s infinite ease-in-out;
+}
+
+.text-outline-dark {
+  color: #1f1f1f;
+  -webkit-text-stroke-width: 5px;
+  -webkit-text-stroke-color: #393939;
+}
+
+.fade-in {
+  animation: fadeIn ease 3s;
+  -webkit-animation: fadeIn ease 3s;
+  -moz-animation: fadeIn ease 3s;
+  -o-animation: fadeIn ease 3s;
+  -ms-animation: fadeIn ease 3s;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    -webkit-text-stroke-color: #393939;
+    opacity: 0.9;
+  }
+  50% {
+    -webkit-text-stroke-color: #10b981;
+    opacity: 1;
+  }
+  100% {
+    -webkit-text-stroke-color: #393939;
+    opacity: 0.9;
+  }
+}
