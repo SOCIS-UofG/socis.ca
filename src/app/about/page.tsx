@@ -2,17 +2,18 @@
 
 import { BrowserView } from "react-device-detect";
 import MemberCard from "./_components/MemberCard";
-import { useEffect, type JSX } from "react";
+import { useEffect, useState, type JSX } from "react";
 import {
   CustomCursor,
-  ErrorMessage,
   LoadingSpinnerCenter,
   Navbar,
   MainWrapper,
   Background,
   NavbarTabs,
+  LinkButton,
 } from "socis-components";
 import { trpc } from "@/lib/trpc/client";
+import { type User } from "next-auth";
 
 /*
 Club Information 
@@ -51,17 +52,17 @@ export default function AboutPage(): JSX.Element {
  * @returns JSX.Element
  */
 function Components(): JSX.Element {
-  const {
-    mutateAsync: fetchUsers,
-    data,
-    status,
-  } = trpc.getAllUsersSecure.useMutation();
+  const { mutateAsync: fetchUsers, status } =
+    trpc.getAllUsersSecure.useMutation();
+  const [users, setUsers] = useState<User[]>([]);
 
   /**
    * Fetch the users (team members) from the database.
    */
   useEffect(() => {
-    fetchUsers();
+    fetchUsers().then((data) => {
+      setUsers(data.users);
+    });
   }, [fetchUsers]);
 
   /**
@@ -69,19 +70,6 @@ function Components(): JSX.Element {
    */
   if (status === "loading") {
     return <LoadingSpinnerCenter />;
-  }
-
-  /**
-   * If the fetch failed, display an error message.
-   */
-  if (status === "error" || !data) {
-    return (
-      <MainWrapper>
-        <ErrorMessage>
-          Something went wrong while fetching the team from the database.
-        </ErrorMessage>
-      </MainWrapper>
-    );
   }
 
   /**
@@ -146,6 +134,26 @@ function Components(): JSX.Element {
             University of Guelph great.
           </p>
         </div>
+
+        {/**
+         * Policies section (link to policies page)
+         *
+         * This is just a brief information section.
+         */}
+        <div className="flex flex-col items-start justify-start">
+          <h1 className="text-center text-6xl font-thin text-white xl:text-7xl">
+            <mark className="bg-transparent text-primary">SOCIS</mark> Policies
+          </h1>
+
+          <p className="mt-2 text-left text-lg font-thin text-white/80">
+            For more information on our constitution, club space policy,
+            committee and staff policy, makerspace policy, and more, visit our
+            policies and constitutions page.
+          </p>
+          <LinkButton href="/policies" className="mt-2">
+            Policies & Consitutions
+          </LinkButton>
+        </div>
       </div>
 
       {/**
@@ -163,7 +171,7 @@ function Components(): JSX.Element {
          * These are the team members. Users with one role ("default") are not team members.
          */}
         <div className="flex flex-col gap-10">
-          {data.users
+          {users
             .filter((user) => user.roles.length > 1)
             .map((user) => (
               <MemberCard user={user} key={user.id} />
