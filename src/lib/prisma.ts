@@ -5,11 +5,11 @@ export class Prisma extends PrismaClient {
   constructor() {
     super();
     this.$connect();
-    console.log("Prisma connected");
   }
 
   /**
    * Get a table
+   *
    * @param table The table to get
    * @returns The table
    */
@@ -20,6 +20,7 @@ export class Prisma extends PrismaClient {
 
   /**
    * Finds many rows in a table
+   *
    * @param table The table to find in
    * @param opts The find options
    * @returns The rows found
@@ -28,12 +29,18 @@ export class Prisma extends PrismaClient {
     table: string,
     opts: any,
   ): Promise<T[]> => {
-    const tableRef: any = Prisma.getTable(table);
-    return await tableRef.findMany(opts);
+    try {
+      const tableRef: any = Prisma.getTable(table);
+
+      return (await tableRef.findMany(opts)) as T[];
+    } catch {
+      return [];
+    }
   };
 
   /**
    * Finds a row in a table
+   *
    * @param table The table to find in
    * @param opts The find options
    * @returns The row found, or null if it doesn't exist
@@ -42,12 +49,18 @@ export class Prisma extends PrismaClient {
     table: string,
     opts: any,
   ): Promise<T | null> => {
-    const tableRef: any = Prisma.getTable(table);
-    return await tableRef.findFirst(opts);
+    try {
+      const tableRef: any = Prisma.getTable(table);
+
+      return (await tableRef.findFirst(opts)) as T;
+    } catch {
+      return null;
+    }
   };
 
   /**
    * Creates a row in a table
+   *
    * @param table The table to create in
    * @param opts The creation options
    * @returns The created row
@@ -55,13 +68,19 @@ export class Prisma extends PrismaClient {
   public static readonly create = async <T>(
     table: string,
     opts: any,
-  ): Promise<T> => {
-    const tableRef: any = Prisma.getTable(table);
-    return await tableRef.create(opts);
+  ): Promise<T | null> => {
+    try {
+      const tableRef: any = Prisma.getTable(table);
+
+      return (await tableRef.create(opts)) as T;
+    } catch {
+      return null;
+    }
   };
 
   /**
    * Updates a row in a table
+   *
    * @param table The table to update
    * @param where The where clause to update
    * @param data The data to update
@@ -70,13 +89,19 @@ export class Prisma extends PrismaClient {
   public static readonly update = async <T>(
     table: string,
     data: any,
-  ): Promise<T> => {
-    const tableRef: any = Prisma.getTable(table);
-    return await tableRef.update(data);
+  ): Promise<T | null> => {
+    try {
+      const tableRef: any = Prisma.getTable(table);
+
+      return (await tableRef.update(data)) as T;
+    } catch {
+      return null;
+    }
   };
 
   /**
    * Deletes a row from a table
+   *
    * @param table The table to delete from
    * @param opts The delete options
    * @returns The deleted row
@@ -84,17 +109,22 @@ export class Prisma extends PrismaClient {
   public static readonly delete = async <T>(
     table: string,
     opts: any,
-  ): Promise<T> => {
-    const tableRef: any = Prisma.getTable(table);
-    return await tableRef.delete(opts);
+  ): Promise<T | null> => {
+    try {
+      const tableRef: any = Prisma.getTable(table);
+
+      return (await tableRef.delete(opts)) as T;
+    } catch {
+      return null;
+    }
   };
 
   /**
    * Fetch all of the users from the database
-   * 
+   *
    * @returns The user's data
    */
-  public static readonly getAllUsersSecure = async (): Promise<(User | null)[]> => {
+  public static readonly getAllUsersSecure = async (): Promise<User[]> => {
     return await Prisma.findMany("user", {
       select: {
         id: true,
@@ -103,10 +133,12 @@ export class Prisma extends PrismaClient {
         image: true,
         permissions: true,
         roles: true,
+
+        // exclude sensitive data
         password: false,
         secret: false,
       },
-    }); // exclude the user secret
+    });
   };
 }
 
