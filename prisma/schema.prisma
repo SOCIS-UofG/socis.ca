@@ -53,7 +53,3 @@ model Initiative {
   description String   @default("New Initiative Description")
   image       String
 }
-
-// npx prisma migrate dev --name init
-// npx prisma db push
-// npx prisma generate
