@@ -3,6 +3,8 @@
 import { BrowserView } from "react-device-detect";
 import MemberCard from "./_components/MemberCard";
 import { useEffect, useState, type JSX } from "react";
+import { trpc } from "@/lib/trpc/client";
+import { type User } from "next-auth";
 import {
   CustomCursor,
   LoadingSpinnerCenter,
@@ -12,8 +14,6 @@ import {
   NavbarTabs,
   LinkButton,
 } from "socis-components";
-import { trpc } from "@/lib/trpc/client";
-import { type User } from "next-auth";
 
 /*
 Club Information 
@@ -76,26 +76,30 @@ function Components(): JSX.Element {
    * Return the main component.
    */
   return (
-    <MainWrapper className="z-40 flex-wrap items-start justify-start gap-10 p-16 pt-44 lg:gap-20 2xl:gap-24">
+    <MainWrapper className="z-40 flex-wrap items-start justify-start gap-10 p-16 pt-36 lg:gap-20 lg:pt-44 2xl:gap-24">
       {/**
        * Wrap the information sections in a div so that they stick together
        * with the flex wrap.
        */}
-      <div className="flex w-[40rem] flex-col items-start justify-start gap-10">
+      <div className="flex max-w-[40rem] flex-col items-start justify-start gap-10">
         {/**
          * Who we are section.
          *
          * This is just a brief information section.
          */}
-        <div className="flex flex-col items-start justify-start">
-          <h1 className="text-center text-6xl font-thin text-white xl:text-7xl">
+        <div className="flex w-fit flex-col items-start justify-start gap-2">
+          <h1 className="text-left text-4xl font-thin text-white md:text-6xl xl:text-7xl">
             <mark className="bg-transparent text-primary">Who</mark> is SOCIS?
           </h1>
-          <p className="mt-2 text-left text-lg font-thin text-white/80">
+          <p className="text-left text-lg font-thin text-white/80">
             The Society of Computing and Information Science (SOCIS) is the
             official student society for the School of Computer Science students
             at the University of Guelph.
           </p>
+          {/**
+           * TODO: Add socials here.
+           */}
+          <div className="flex flex-wrap gap-4"></div>
         </div>
 
         {/**
@@ -103,8 +107,8 @@ function Components(): JSX.Element {
          *
          * This is just a brief information section.
          */}
-        <div className="flex flex-col items-start justify-start">
-          <h1 className="text-center text-6xl font-thin text-white xl:text-7xl">
+        <div className="flex w-fit flex-col items-start justify-start">
+          <h1 className="text-left text-4xl font-thin text-white md:text-6xl xl:text-7xl">
             <mark className="bg-transparent text-primary">What</mark> do we do?
           </h1>
 
@@ -121,8 +125,8 @@ function Components(): JSX.Element {
          *
          * This is just a brief information section.
          */}
-        <div className="flex flex-col items-start justify-start">
-          <h1 className="text-center text-6xl font-thin text-white xl:text-7xl">
+        <div className="flex w-fit flex-col items-start justify-start">
+          <h1 className="text-left text-4xl font-thin text-white md:text-6xl xl:text-7xl">
             <mark className="bg-transparent text-primary">Why</mark> do we do
             it?
           </h1>
@@ -140,8 +144,8 @@ function Components(): JSX.Element {
          *
          * This is just a brief information section.
          */}
-        <div className="flex flex-col items-start justify-start">
-          <h1 className="text-center text-6xl font-thin text-white xl:text-7xl">
+        <div className="flex w-fit flex-col items-start justify-start">
+          <h1 className="text-left text-4xl font-thin text-white md:text-6xl xl:text-7xl">
             <mark className="bg-transparent text-primary">SOCIS</mark> Policies
           </h1>
 

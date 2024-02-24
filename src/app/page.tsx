@@ -32,9 +32,11 @@ export default function HomePage(): JSX.Element {
         </h1>
       </MainWrapper>
 
+      {/*
       <p className="fixed bottom-4 left-1/2 z-50 -translate-x-1/2 transform animate-pulse text-center text-sm font-light tracking-wide text-gray-400 lg:text-base">
         Scroll for more
       </p>
+      */}
     </>
   );
 }
