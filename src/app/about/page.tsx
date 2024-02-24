@@ -1,7 +1,7 @@
 "use client";
 
 import { BrowserView } from "react-device-detect";
-import MemberCard from "./_components/MemberCard";
+import MemberCard from "@/components/MemberCard";
 import { useEffect, useState, type JSX } from "react";
 import { trpc } from "@/lib/trpc/client";
 import { type User } from "next-auth";
@@ -14,18 +14,6 @@ import {
   NavbarTabs,
   LinkButton,
 } from "socis-components";
-
-/*
-Club Information 
-
-Who we are, description 
-
-Our history, etc. 
-
-FAQ
-
-Current Exec. list
-*/
 
 /**
  * About page.
@@ -88,10 +76,10 @@ function Components(): JSX.Element {
          * This is just a brief information section.
          */}
         <div className="flex w-fit flex-col items-start justify-start gap-2">
-          <h1 className="text-left text-4xl font-thin text-white md:text-6xl xl:text-7xl">
+          <h1 className="text-left text-4xl font-bold text-white md:text-6xl xl:text-7xl">
             <mark className="bg-transparent text-primary">Who</mark> is SOCIS?
           </h1>
-          <p className="text-left text-lg font-thin text-white/80">
+          <p className="text-left text-lg font-normal text-white/80">
             The Society of Computing and Information Science (SOCIS) is the
             official student society for the School of Computer Science students
             at the University of Guelph.
@@ -108,11 +96,11 @@ function Components(): JSX.Element {
          * This is just a brief information section.
          */}
         <div className="flex w-fit flex-col items-start justify-start">
-          <h1 className="text-left text-4xl font-thin text-white md:text-6xl xl:text-7xl">
+          <h1 className="text-left text-4xl font-bold text-white md:text-6xl xl:text-7xl">
             <mark className="bg-transparent text-primary">What</mark> do we do?
           </h1>
 
-          <p className="mt-2 text-left text-lg font-thin text-white/80">
+          <p className="mt-2 text-left text-lg font-normal text-white/80">
             We focus on community building, creating opportunities for students,
             and advocating for students interests. We also run events, organize
             hackathons, administer clubs, and represent School of Computer
@@ -126,12 +114,12 @@ function Components(): JSX.Element {
          * This is just a brief information section.
          */}
         <div className="flex w-fit flex-col items-start justify-start">
-          <h1 className="text-left text-4xl font-thin text-white md:text-6xl xl:text-7xl">
+          <h1 className="text-left text-4xl font-bold text-white md:text-6xl xl:text-7xl">
             <mark className="bg-transparent text-primary">Why</mark> do we do
             it?
           </h1>
 
-          <p className="mt-2 text-left text-lg font-thin text-white/80">
+          <p className="mt-2 text-left text-lg font-normal text-white/80">
             We play a role in uniting students and improving their university
             experience. Through this role we want to empower students to
             innovate, network, and succeed because students are what make the
@@ -145,11 +133,11 @@ function Components(): JSX.Element {
          * This is just a brief information section.
          */}
         <div className="flex w-fit flex-col items-start justify-start">
-          <h1 className="text-left text-4xl font-thin text-white md:text-6xl xl:text-7xl">
+          <h1 className="text-left text-4xl font-bold text-white md:text-6xl xl:text-7xl">
             <mark className="bg-transparent text-primary">SOCIS</mark> Policies
           </h1>
 
-          <p className="mt-2 text-left text-lg font-thin text-white/80">
+          <p className="mt-2 text-left text-lg font-normal text-white/80">
             For more information on our constitution, club space policy,
             committee and staff policy, makerspace policy, and more, visit our
             policies and constitutions page.
