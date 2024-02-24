@@ -36,10 +36,10 @@ export default function PoliciesPage() {
  */
 function Components(): JSX.Element {
   const files = [
+    "Constitution.b199f8d94896faea389401adc586b46406e2bde7b138a706a9bd0f4085b2c337.pdf",
+    "MakersSpacePolicy.00dfd8c4f3d7d2efd1439db08946f3f48a49efbd2dc1ffbf3e0a41b0cafbf88c.pdf",
     "ClubSpacePolicy.6b8a2123ff7ecd9faae0.pdf",
     "CommitteeAndStaffPolicy.47a31040760ead082474.pdf",
-    "Constitution.c8ce0694a7e90b57662f.pdf",
-    "MakersSpacePolicy.0b49acb0963f6ca9f406.pdf",
   ];
 
   return (
