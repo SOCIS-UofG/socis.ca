@@ -68,16 +68,16 @@ function Components(): JSX.Element {
 
         <div className="mx-7 mt-4 flex flex-wrap items-center justify-center gap-4">
           <LinkButton
-            href={config.default.discordServerUrl}
+            href={config.default.socialsUrl}
             className="w-full sm:w-auto"
           >
-            Join Discord
+            Follow our socials
           </LinkButton>
           <LinkButton
             href={config.default.emailSignUpUrl}
             className="w-full sm:w-auto"
           >
-            Sign Up for Updates
+            Sign up for Updates
           </LinkButton>
           <LinkButton
             href={config.default.applyUrl}
