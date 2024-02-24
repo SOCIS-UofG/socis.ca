@@ -76,7 +76,7 @@ function Components(): JSX.Element {
          * This is just a brief information section.
          */}
         <div className="flex w-fit flex-col items-start justify-start gap-2">
-          <h1 className="text-left text-4xl font-semibold text-white md:text-6xl xl:text-7xl">
+          <h1 className="text-left text-4xl font-thin text-white md:text-6xl xl:text-7xl">
             <mark className="bg-transparent text-primary">Who</mark> is SOCIS?
           </h1>
           <p className="text-left text-lg font-light text-white/80">
@@ -96,7 +96,7 @@ function Components(): JSX.Element {
          * This is just a brief information section.
          */}
         <div className="flex w-fit flex-col items-start justify-start">
-          <h1 className="text-left text-4xl font-semibold text-white md:text-6xl xl:text-7xl">
+          <h1 className="text-left text-4xl font-thin text-white md:text-6xl xl:text-7xl">
             <mark className="bg-transparent text-primary">What</mark> do we do?
           </h1>
 
@@ -114,7 +114,7 @@ function Components(): JSX.Element {
          * This is just a brief information section.
          */}
         <div className="flex w-fit flex-col items-start justify-start">
-          <h1 className="text-left text-4xl font-semibold text-white md:text-6xl xl:text-7xl">
+          <h1 className="text-left text-4xl font-thin text-white md:text-6xl xl:text-7xl">
             <mark className="bg-transparent text-primary">Why</mark> do we do
             it?
           </h1>
@@ -133,7 +133,7 @@ function Components(): JSX.Element {
          * This is just a brief information section.
          */}
         <div className="flex w-fit flex-col items-start justify-start">
-          <h1 className="text-left text-4xl font-semibold text-white md:text-6xl xl:text-7xl">
+          <h1 className="text-left text-4xl font-thin text-white md:text-6xl xl:text-7xl">
             <mark className="bg-transparent text-primary">SOCIS</mark> Policies
           </h1>
 
