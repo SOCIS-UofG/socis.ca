@@ -162,9 +162,18 @@ function Components(): JSX.Element {
          * First filter the users to only include those with more than one role.
          * These are the team members. Users with one role ("default") are not team members.
          */}
-        <div className="flex flex-col gap-10">
+        <div className="flex flex-wrap gap-10">
           {users
+            // filter out the users with only one role
             .filter((user) => user.roles.length > 1)
+
+            // keep the roles together
+            .sort((a, b) => a.roles.length - b.roles.length)
+            .reverse()
+
+            // @ts-ignore if another user has the same role, put them together
+            .sort((a, b) => a.roles[1].localeCompare(b.roles[1]))
+
             .map((user) => (
               <MemberCard user={user} key={user.id} />
             ))}
