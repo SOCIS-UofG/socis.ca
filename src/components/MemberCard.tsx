@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function MemberCard(props: { user: User }): JSX.Element {
   return (
-    <div className="flex h-72 w-60 gap-2 flex-col items-center justify-center rounded-lg border border-primary bg-secondary duration-300 ease-in-out hover:scale-105 hover:shadow-md hover:shadow-emerald-700/50">
+    <div className="flex h-72 w-full flex-col items-center justify-center gap-2 rounded-lg border border-primary bg-secondary duration-300 ease-in-out hover:scale-105 hover:shadow-md hover:shadow-emerald-700/50 sm:w-60">
       <Image
         src={props.user.image}
         alt="Profile picture"
