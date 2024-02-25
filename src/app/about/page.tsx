@@ -65,12 +65,12 @@ function Components(): JSX.Element {
    * Return the main component.
    */
   return (
-    <MainWrapper className="z-40 flex-wrap items-start justify-start gap-10 p-16 pt-36 lg:gap-20 lg:pt-44 2xl:gap-24">
+    <MainWrapper className="z-40 flex-auto flex-wrap items-start justify-start gap-10 p-16 pt-36 lg:gap-20 lg:pt-44 xl:flex-row xl:flex-nowrap 2xl:gap-24">
       {/**
        * Wrap the information sections in a div so that they stick together
        * with the flex wrap.
        */}
-      <div className="flex max-w-[40rem] flex-col items-start justify-start gap-10">
+      <div className="flex max-w-[50rem] flex-col items-start justify-start gap-10 xl:max-w-[38rem]">
         {/**
          * Who we are section.
          *
@@ -156,23 +156,15 @@ function Components(): JSX.Element {
        * be exhibited on a card -- along with their custom set user profile picture, name,
        * email, and roles.
        */}
-      <div className="flex w-auto flex-col items-start justify-start">
-        {/**
-         * Render the member cards with the fetched team members.
-         *
-         * First filter the users to only include those with more than one role.
-         * These are the team members. Users with one role ("default") are not team members.
-         */}
-        <div className="flex flex-wrap gap-10">
-          {users
-            // filter out the users with only one role
-            .filter((user) => user.roles.length > 1)
-            // sort the users by their roles
-            .sort((a, b) => compareRoles(a.roles, b.roles))
-            .map((user) => (
-              <MemberCard user={user} key={user.id} />
-            ))}
-        </div>
+      <div className="flex w-full flex-wrap items-start justify-start gap-10">
+        {users
+          // filter out the users with only one role
+          .filter((user) => user.roles.length > 1)
+          // sort the users by their roles
+          .sort((a, b) => compareRoles(a.roles, b.roles))
+          .map((user) => (
+            <MemberCard user={user} key={user.id} />
+          ))}
       </div>
     </MainWrapper>
   );
