@@ -14,6 +14,7 @@ import {
   NavbarTabs,
   LinkButton,
 } from "socis-components";
+import { compareRoles } from "@/lib/utils/roles";
 
 /**
  * About page.
@@ -166,14 +167,8 @@ function Components(): JSX.Element {
           {users
             // filter out the users with only one role
             .filter((user) => user.roles.length > 1)
-
-            // keep the roles together
-            .sort((a, b) => a.roles.length - b.roles.length)
-            .reverse()
-
-            // @ts-ignore if another user has the same role, put them together
-            .sort((a, b) => a.roles[1].localeCompare(b.roles[1]))
-
+            // sort the users by their roles
+            .sort((a, b) => compareRoles(a.roles, b.roles))
             .map((user) => (
               <MemberCard user={user} key={user.id} />
             ))}
