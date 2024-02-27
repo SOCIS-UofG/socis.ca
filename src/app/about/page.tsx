@@ -142,10 +142,10 @@ function Components(): JSX.Element {
           <p className="mt-2 text-left text-lg font-thin text-white/80">
             For more information on our constitution, club space policy,
             committee and staff policy, makerspace policy, and more, visit our
-            policies and constitutions page.
+            policies and constitution page.
           </p>
           <LinkButton href="/policies" className="mt-4">
-            Policies & Consitutions
+            Policies & Consitution
           </LinkButton>
         </div>
       </div>
