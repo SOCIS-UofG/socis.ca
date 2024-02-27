@@ -157,7 +157,7 @@ function Components(): JSX.Element {
        * be exhibited on a card -- along with their custom set user profile picture, name,
        * email, and roles.
        */}
-      <div className="flex max-w-[50rem] flex-wrap items-start justify-start gap-10">
+      <div className="flex w-full flex-wrap items-start justify-start gap-4 sm:gap-7">
         {users
           // filter out the users with only one role
           .filter((user) => user.roles.length > 1)
