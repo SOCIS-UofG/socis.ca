@@ -16,8 +16,6 @@ import {
 } from "socis-components";
 import { compareRoles } from "@/lib/utils/roles";
 
-// npm uninstall socis-components && npm i socis-components
-
 /**
  * About page.
  *
@@ -68,7 +66,7 @@ function Components(): JSX.Element {
    * Return the main component.
    */
   return (
-    <MainWrapper className="flex flex-col items-start justify-start gap-10 p-10 pt-32 lg:flex-row lg:p-16 lg:pt-40">
+    <MainWrapper className="flex flex-col items-start justify-start gap-10 p-10 pt-32 sm:flex-row lg:flex-row lg:p-16 lg:pt-40">
       {/**
        * Wrap the information sections in a div so that they stick together
        * with the flex wrap.
@@ -168,42 +166,6 @@ function Components(): JSX.Element {
           .map((user) => (
             <MemberCard user={user} key={user.id} />
           ))}
-        <MemberCard
-          user={
-            {
-              id: "1",
-              name: "John Doe",
-              email: "test",
-              secret: "test",
-              roles: ["admin", "member"],
-            } as User
-          }
-          key={"1"}
-        />
-        <MemberCard
-          user={
-            {
-              id: "1",
-              name: "John Doe",
-              email: "test",
-              secret: "test",
-              roles: ["admin", "member"],
-            } as User
-          }
-          key={"1"}
-        />
-        <MemberCard
-          user={
-            {
-              id: "1",
-              name: "John Doe",
-              email: "test",
-              secret: "test",
-              roles: ["admin", "member"],
-            } as User
-          }
-          key={"1"}
-        />
       </div>
     </MainWrapper>
   );
