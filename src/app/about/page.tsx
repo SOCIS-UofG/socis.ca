@@ -65,7 +65,7 @@ function Components(): JSX.Element {
    * Return the main component.
    */
   return (
-    <MainWrapper className="z-40 flex-auto flex-wrap items-start justify-start gap-10 p-16 pt-36 lg:gap-20 lg:pt-44 xl:flex-row xl:flex-nowrap 2xl:gap-24">
+    <MainWrapper className="z-40 flex-auto flex-wrap items-start justify-start gap-10 p-7 pt-36 sm:p-16 lg:gap-20 lg:pt-44 xl:flex-row xl:flex-nowrap 2xl:gap-24">
       {/**
        * Wrap the information sections in a div so that they stick together
        * with the flex wrap.
