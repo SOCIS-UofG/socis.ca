@@ -12,6 +12,9 @@ module.exports = {
         primary: "#10b981",
         secondary: "#1f1f1f",
       },
+      screens: {
+        xs: "375px",
+      },
     },
   },
 };
