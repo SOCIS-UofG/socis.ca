@@ -26,6 +26,7 @@ export default function AboutPage(): JSX.Element {
     <>
       <Navbar underlined={NavbarTabs.ABOUT} />
       <Background text="ABOUT" className="-z-10" />
+
       <BrowserView>
         <CustomCursor />
       </BrowserView>
@@ -65,18 +66,18 @@ function Components(): JSX.Element {
    * Return the main component.
    */
   return (
-    <MainWrapper className="z-40 flex-auto flex-wrap items-start justify-start gap-10 p-7 pt-36 sm:p-16 lg:gap-20 lg:pt-44 xl:flex-row xl:flex-nowrap 2xl:gap-24">
+    <MainWrapper className="flex flex-col items-start justify-start gap-10 p-10 pt-32 sm:flex-row lg:flex-row lg:p-16 lg:pt-40">
       {/**
        * Wrap the information sections in a div so that they stick together
        * with the flex wrap.
        */}
-      <div className="flex max-w-[50rem] flex-col items-start justify-start gap-10 xl:max-w-[38rem]">
+      <div className="flex max-w-[40rem] flex-col items-start justify-start gap-10">
         {/**
          * Who we are section.
          *
          * This is just a brief information section.
          */}
-        <div className="flex w-fit flex-col items-start justify-start gap-2">
+        <div className="flex w-full max-w-[40rem] flex-col items-start justify-start gap-2">
           <h1 className="text-left text-4xl font-extralight text-white md:text-6xl xl:text-7xl">
             <mark className="bg-transparent text-primary">Who</mark> is SOCIS?
           </h1>
@@ -96,7 +97,7 @@ function Components(): JSX.Element {
          *
          * This is just a brief information section.
          */}
-        <div className="flex w-fit flex-col items-start justify-start">
+        <div className="flex w-full max-w-[40rem] flex-col items-start justify-start">
           <h1 className="text-left text-4xl font-extralight text-white md:text-6xl xl:text-7xl">
             <mark className="bg-transparent text-primary">What</mark> do we do?
           </h1>
@@ -114,7 +115,7 @@ function Components(): JSX.Element {
          *
          * This is just a brief information section.
          */}
-        <div className="flex w-fit flex-col items-start justify-start">
+        <div className="flex w-full max-w-[40rem] flex-col items-start justify-start">
           <h1 className="text-left text-4xl font-extralight text-white md:text-6xl xl:text-7xl">
             <mark className="bg-transparent text-primary">Why</mark> do we do
             it?
@@ -133,7 +134,7 @@ function Components(): JSX.Element {
          *
          * This is just a brief information section.
          */}
-        <div className="flex w-fit flex-col items-start justify-start">
+        <div className="flex w-full max-w-[40rem] flex-col items-start justify-start">
           <h1 className="text-left text-4xl font-extralight text-white md:text-6xl xl:text-7xl">
             <mark className="bg-transparent text-primary">SOCIS</mark> Policies
           </h1>
@@ -143,7 +144,7 @@ function Components(): JSX.Element {
             committee and staff policy, makerspace policy, and more, visit our
             policies and constitutions page.
           </p>
-          <LinkButton href="/policies" className="mt-2">
+          <LinkButton href="/policies" className="mt-4">
             Policies & Consitutions
           </LinkButton>
         </div>
@@ -156,7 +157,7 @@ function Components(): JSX.Element {
        * be exhibited on a card -- along with their custom set user profile picture, name,
        * email, and roles.
        */}
-      <div className="flex w-full flex-wrap items-start justify-start gap-10">
+      <div className="flex max-w-[50rem] flex-wrap items-start justify-start gap-10">
         {users
           // filter out the users with only one role
           .filter((user) => user.roles.length > 1)
