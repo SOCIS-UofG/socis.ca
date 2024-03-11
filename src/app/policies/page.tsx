@@ -39,7 +39,8 @@ function Components(): JSX.Element {
     "Constitution.b199f8d94896faea389401adc586b46406e2bde7b138a706a9bd0f4085b2c337.pdf",
     "MakersSpacePolicy.00dfd8c4f3d7d2efd1439db08946f3f48a49efbd2dc1ffbf3e0a41b0cafbf88c.pdf",
     "CommitteeAndStaffPolicy.b1c787905db2b7ea403cbf709e0e5bf83eff286fa616828678927deee22b8165.pdf",
-    "ClubSpacePolicy.6b8a2123ff7ecd9faae0.pdf",
+    "ClubSpacePolicy.12eb2669ee9969510dda0b61b7cb8d8176d7d53cc454e108410fee977165f6c3.pdf",
+    "EquipmentLoanDocument.0ee599fa984ae1f302ff5be8288919277515126982853b5fea8ff1e1d8e45256.pdf",
   ];
 
   return (
