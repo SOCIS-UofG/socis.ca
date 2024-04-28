@@ -12,6 +12,7 @@ import Navbar from "@/components/ui/global/Navbar";
 import CustomCursor from "@/components/ui/global/CustomCursor";
 import Link from "next/link";
 import Image from "next/image";
+import { type Status } from "@/types/global/status";
 
 /**
  * About page.
@@ -39,10 +40,10 @@ export default function AboutPage(): JSX.Element {
  * @returns JSX.Element
  */
 function Components(): JSX.Element {
-  const { mutateAsync: fetchUsers, status } =
-    trpc.getAllUsersSecure.useMutation();
+  const { mutateAsync: fetchUsers } = trpc.getAllUsersSecure.useMutation();
 
   const [users, setUsers] = useState<User[]>([]);
+  const [status, setStatus] = useState<Status>("idle");
 
   /**
    * Fetch the users (team members) from the database.
@@ -52,9 +53,16 @@ function Components(): JSX.Element {
       return;
     }
 
-    fetchUsers().then((data) => {
-      setUsers(data.users);
-    });
+    setStatus("loading");
+
+    fetchUsers()
+      .then((res) => {
+        setUsers(res.users);
+        setStatus("success");
+      })
+      .catch(() => {
+        setStatus("error");
+      });
   }, [fetchUsers]);
 
   /**
@@ -164,7 +172,7 @@ function Components(): JSX.Element {
 
 function UserCard(props: { user: User }): JSX.Element {
   return (
-    <div className="flex h-80 w-full flex-col items-center justify-center gap-2 rounded-lg border border-primary bg-secondary p-4 sm:max-w-64">
+    <div className="flex h-80 w-full flex-col items-center justify-center gap-2 rounded-xl border-2 border-neutral-700/50 bg-secondary p-4 sm:max-w-64">
       <Image
         src={props.user.image}
         alt={`Image of ${props.user.name}`}
