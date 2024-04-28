@@ -42,65 +42,7 @@ function Components(): JSX.Element {
   const { mutateAsync: fetchUsers, status } =
     trpc.getAllUsersSecure.useMutation();
 
-  const [users, setUsers] = useState<User[]>([
-    {
-      id: "0",
-      name: "Loading...",
-      email: "Loading...",
-      image: "/images/placeholder.png",
-      roles: ["Loading...", "Loading...", "Loading..."],
-    } as User,
-    {
-      id: "0",
-      name: "Loading...",
-      email: "Loading...",
-      image: "/images/placeholder.png",
-      roles: ["Loading...", "Loading...", "Loading..."],
-    } as User,
-    {
-      id: "0",
-      name: "Loading...",
-      email: "Loading...",
-      image: "/images/placeholder.png",
-      roles: ["Loading...", "Loading...", "Loading..."],
-    } as User,
-    {
-      id: "0",
-      name: "Loading...",
-      email: "Loading...",
-      image: "/images/placeholder.png",
-      roles: ["Loading...", "Loading...", "Loading..."],
-    } as User,
-    {
-      id: "0",
-      name: "Loading...",
-      email: "Loading...",
-      image: "/images/placeholder.png",
-      roles: ["Loading...", "Loading...", "Loading..."],
-    } as User,
-    {
-      id: "0",
-      name: "Loading...",
-      email: "Loading...",
-      image: "/images/placeholder.png",
-      roles: ["Loading...", "Loading...", "Loading..."],
-    } as User,
-    {
-      id: "0",
-      name: "Loading...",
-      email: "Loading...",
-      image: "/images/placeholder.png",
-      roles: ["Loading...", "Loading...", "Loading..."],
-    } as User,
-
-    {
-      id: "0",
-      name: "Loading...",
-      email: "Loading...",
-      image: "/images/placeholder.png",
-      roles: ["Loading...", "Loading...", "Loading..."],
-    } as User,
-  ]);
+  const [users, setUsers] = useState<User[]>([]);
 
   /**
    * Fetch the users (team members) from the database.
