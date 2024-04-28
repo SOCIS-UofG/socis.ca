@@ -31,22 +31,26 @@ export default function HomePage(): JSX.Element {
 
 function Components(): JSX.Element {
   return (
-    <MainWrapper className="relative z-40 flex min-h-screen w-screen flex-col items-center justify-center p-24">
-      <h1 className="fade-in mx-40 bg-gradient-to-r from-gray-200 to-gray-300 bg-clip-text text-center text-6xl font-thin text-transparent sm:text-7xl lg:text-8xl">
-        Inspiring the next generation of tech innovators.
-      </h1>
+    <>
+      <MainWrapper className="relative z-40 flex min-h-screen w-screen flex-col items-center justify-center p-24">
+        <h1 className="fade-in mx-40 bg-gradient-to-r from-gray-200 to-gray-300 bg-clip-text text-center text-6xl font-thin text-transparent sm:text-7xl lg:text-8xl">
+          Inspiring the next generation of tech innovators.
+        </h1>
+      </MainWrapper>
 
-      <p className="fixed bottom-4 left-1/2 z-50 -translate-x-1/2 transform animate-pulse text-center text-sm font-light tracking-wide text-gray-400 lg:text-base">
-        The source code for this website is available on{" "}
-        <a
-          href="https://github.com/SOCIS-UofG/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-primary hover:underline"
-        >
-          GitHub
-        </a>
-      </p>
-    </MainWrapper>
+      <div className="fixed bottom-4 left-1/2 z-[100] h-auto w-fit -translate-x-1/2 transform rounded-xl bg-secondary px-3 py-1 text-center text-sm font-light tracking-wide text-gray-400 lg:text-base">
+        <p className="animate-pulse">
+          The source code for this website is available on{" "}
+          <a
+            href="https://github.com/SOCIS-UofG/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className=" text-primary hover:underline"
+          >
+            GitHub
+          </a>
+        </p>
+      </div>
+    </>
   );
 }
