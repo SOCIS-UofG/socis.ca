@@ -77,7 +77,7 @@ function Components(): JSX.Element {
        * Wrap the information sections in a div so that they stick together
        * with the flex wrap.
        */}
-      <div className="flex w-full max-w-xl flex-col items-start justify-start gap-10">
+      <div className="flex w-full max-w-xl flex-col items-start justify-start gap-10 xl:max-w-2xl">
         {/**
          * Who we are section.
          *
@@ -92,6 +92,10 @@ function Components(): JSX.Element {
             official student society for the School of Computer Science students
             at the University of Guelph.
           </p>
+
+          <Button as={Link} href="/policies" className="mt-4" color="primary">
+            See our Policies & Consitution
+          </Button>
 
           {/**
            * TODO: Add socials here.
@@ -134,27 +138,6 @@ function Components(): JSX.Element {
             innovate, network, and succeed because students are what make the
             University of Guelph great.
           </p>
-        </div>
-
-        {/**
-         * Policies section (link to policies page)
-         *
-         * This is just a brief information section.
-         */}
-        <div className="flex w-full max-w-xl flex-col items-start justify-start 2xl:max-w-2xl">
-          <h1 className="text-left text-4xl font-extralight text-white md:text-6xl 2xl:text-7xl">
-            <mark className="bg-transparent text-primary">SOCIS</mark> Policies
-          </h1>
-
-          <p className="mt-2 text-left font-thin text-white/80 2xl:text-lg">
-            For more information on our constitution, club space policy,
-            committee and staff policy, makerspace policy, and more, visit our
-            policies and constitution page.
-          </p>
-
-          <Button as={Link} href="/policies" className="mt-4" color="primary">
-            See our Policies & Consitution
-          </Button>
         </div>
       </div>
 

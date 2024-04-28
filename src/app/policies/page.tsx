@@ -5,6 +5,7 @@ import CustomCursor from "@/components/ui/global/CustomCursor";
 import MainWrapper from "@/components/ui/global/MainWrapper";
 import Navbar from "@/components/ui/global/Navbar";
 import { Button } from "@nextui-org/button";
+import Link from "next/link";
 import { BrowserView } from "react-device-detect";
 
 /**
@@ -55,6 +56,7 @@ function Components(): JSX.Element {
         <div className="mx-7 mt-6 flex w-full max-w-xl flex-col items-center justify-center gap-4">
           {files.map((file, index) => (
             <Button
+              as={Link}
               color={index == 0 ? "primary" : "default"}
               href={`/policies/${file}`}
               className="w-full"

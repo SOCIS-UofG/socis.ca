@@ -80,7 +80,7 @@ export default function Navbar(): JSX.Element {
         {props.children}
       </a>
 
-      <span className="absolute z-0 h-full w-0 rounded-lg bg-primary duration-300 ease-in-out group-hover:w-full"></span>
+      <span className="absolute z-0 h-full w-0 rounded-xl bg-primary duration-300 ease-in-out group-hover:w-full"></span>
     </div>
   );
 
