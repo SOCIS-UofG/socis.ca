@@ -77,7 +77,7 @@ function Components(): JSX.Element {
        * Wrap the information sections in a div so that they stick together
        * with the flex wrap.
        */}
-      <div className="flex w-full max-w-xl flex-col items-start justify-start gap-10 xl:max-w-2xl">
+      <div className="flex w-full max-w-xl flex-col items-start justify-start gap-10 xl:fixed xl:max-w-2xl">
         {/**
          * Who we are section.
          *
@@ -148,7 +148,7 @@ function Components(): JSX.Element {
        * be exhibited on a card -- along with their custom set user profile picture, name,
        * email, and roles.
        */}
-      <div className="flex h-fit w-full flex-wrap items-start justify-start gap-4 sm:gap-7 xl:justify-end">
+      <div className="flex h-fit w-full flex-wrap items-start justify-start gap-4 sm:gap-7 xl:absolute xl:right-16 xl:w-1/2 xl:justify-end">
         {users
           // filter out the users with only one role
           .filter((user) => user.roles.length > 1)
