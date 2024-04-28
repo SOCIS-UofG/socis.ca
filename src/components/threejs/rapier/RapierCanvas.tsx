@@ -8,7 +8,9 @@ import { cn } from "@/lib/utils/cn";
 
 export default function RapierCanvas({ className }: { className?: string }) {
   return (
-    <div className={cn("fixed left-0 top-0 z-0 h-screen w-screen", className)}>
+    <div
+      className={cn("fixed left-0 top-0 z-[90] h-screen w-screen", className)}
+    >
       <Canvas
         shadows
         gl={{ alpha: true, stencil: false, depth: false, antialias: false }}

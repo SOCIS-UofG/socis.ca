@@ -1,20 +1,17 @@
 "use client";
 
 import { BrowserView } from "react-device-detect";
-import MemberCard from "@/components/MemberCard";
 import { useEffect, useState, type JSX } from "react";
 import { trpc } from "@/lib/trpc/client";
 import { type User } from "next-auth";
-import {
-  CustomCursor,
-  LoadingSpinnerCenter,
-  Navbar,
-  MainWrapper,
-  Background,
-  NavbarTabs,
-  LinkButton,
-} from "socis-components";
 import { compareRoles } from "@/lib/utils/roles";
+import { Button, Spinner } from "@nextui-org/react";
+import MainWrapper from "@/components/ui/global/MainWrapper";
+import Background from "@/components/ui/global/Background";
+import Navbar from "@/components/ui/global/Navbar";
+import CustomCursor from "@/components/ui/global/CustomCursor";
+import Link from "next/link";
+import Image from "next/image";
 
 /**
  * About page.
@@ -24,8 +21,8 @@ import { compareRoles } from "@/lib/utils/roles";
 export default function AboutPage(): JSX.Element {
   return (
     <>
-      <Navbar underlined={NavbarTabs.ABOUT} />
-      <Background text="ABOUT" className="-z-10" />
+      <Navbar />
+      <Background text="ABOUT" />
 
       <BrowserView>
         <CustomCursor />
@@ -44,12 +41,17 @@ export default function AboutPage(): JSX.Element {
 function Components(): JSX.Element {
   const { mutateAsync: fetchUsers, status } =
     trpc.getAllUsersSecure.useMutation();
+
   const [users, setUsers] = useState<User[]>([]);
 
   /**
    * Fetch the users (team members) from the database.
    */
   useEffect(() => {
+    if (status !== "idle") {
+      return;
+    }
+
     fetchUsers().then((data) => {
       setUsers(data.users);
     });
@@ -59,33 +61,38 @@ function Components(): JSX.Element {
    * If the fetch is still in progress, display a loading spinner.
    */
   if (status === "loading") {
-    return <LoadingSpinnerCenter />;
+    return (
+      <MainWrapper className="relative z-40 flex min-h-screen w-screen flex-col items-center justify-center p-24">
+        <Spinner size="lg" color="primary" />
+      </MainWrapper>
+    );
   }
 
   /**
    * Return the main component.
    */
   return (
-    <MainWrapper className="flex flex-col items-start justify-start gap-10 p-10 pt-32 sm:flex-row lg:flex-row lg:p-16 lg:pt-40">
+    <MainWrapper className="relative z-40 flex min-h-screen w-screen flex-col gap-12 px-16 py-32 xl:flex-row">
       {/**
        * Wrap the information sections in a div so that they stick together
        * with the flex wrap.
        */}
-      <div className="flex max-w-[40rem] flex-col items-start justify-start gap-10">
+      <div className="flex w-full max-w-xl flex-col items-start justify-start gap-10">
         {/**
          * Who we are section.
          *
          * This is just a brief information section.
          */}
-        <div className="flex w-full max-w-[40rem] flex-col items-start justify-start gap-2">
-          <h1 className="text-left text-4xl font-extralight text-white md:text-6xl xl:text-7xl">
+        <div className="flex w-full max-w-xl flex-col items-start justify-start gap-2 2xl:max-w-2xl">
+          <h1 className="text-left text-4xl font-extralight text-white md:text-6xl 2xl:text-7xl">
             <mark className="bg-transparent text-primary">Who</mark> is SOCIS?
           </h1>
-          <p className="text-left text-lg font-thin text-white/80">
+          <p className="text-left font-thin text-white/80 2xl:text-lg">
             The Society of Computing and Information Science (SOCIS) is the
             official student society for the School of Computer Science students
             at the University of Guelph.
           </p>
+
           {/**
            * TODO: Add socials here.
            */}
@@ -97,12 +104,12 @@ function Components(): JSX.Element {
          *
          * This is just a brief information section.
          */}
-        <div className="flex w-full max-w-[40rem] flex-col items-start justify-start">
-          <h1 className="text-left text-4xl font-extralight text-white md:text-6xl xl:text-7xl">
+        <div className="flex w-full max-w-xl flex-col items-start justify-start 2xl:max-w-2xl">
+          <h1 className="text-left text-4xl font-extralight text-white md:text-6xl 2xl:text-7xl">
             <mark className="bg-transparent text-primary">What</mark> do we do?
           </h1>
 
-          <p className="mt-2 text-left text-lg font-thin text-white/80">
+          <p className="mt-2 text-left font-thin text-white/80 2xl:text-lg">
             We focus on community building, creating opportunities for students,
             and advocating for students interests. We also run events, organize
             hackathons, administer clubs, and represent School of Computer
@@ -115,13 +122,13 @@ function Components(): JSX.Element {
          *
          * This is just a brief information section.
          */}
-        <div className="flex w-full max-w-[40rem] flex-col items-start justify-start">
-          <h1 className="text-left text-4xl font-extralight text-white md:text-6xl xl:text-7xl">
+        <div className="flex w-full max-w-xl flex-col items-start justify-start 2xl:max-w-2xl">
+          <h1 className="text-left text-4xl font-extralight text-white md:text-6xl 2xl:text-7xl">
             <mark className="bg-transparent text-primary">Why</mark> do we do
             it?
           </h1>
 
-          <p className="mt-2 text-left text-lg font-thin text-white/80">
+          <p className="mt-2 text-left font-thin text-white/80 2xl:text-lg">
             We play a role in uniting students and improving their university
             experience. Through this role we want to empower students to
             innovate, network, and succeed because students are what make the
@@ -134,19 +141,20 @@ function Components(): JSX.Element {
          *
          * This is just a brief information section.
          */}
-        <div className="flex w-full max-w-[40rem] flex-col items-start justify-start">
-          <h1 className="text-left text-4xl font-extralight text-white md:text-6xl xl:text-7xl">
+        <div className="flex w-full max-w-xl flex-col items-start justify-start 2xl:max-w-2xl">
+          <h1 className="text-left text-4xl font-extralight text-white md:text-6xl 2xl:text-7xl">
             <mark className="bg-transparent text-primary">SOCIS</mark> Policies
           </h1>
 
-          <p className="mt-2 text-left text-lg font-thin text-white/80">
+          <p className="mt-2 text-left font-thin text-white/80 2xl:text-lg">
             For more information on our constitution, club space policy,
             committee and staff policy, makerspace policy, and more, visit our
             policies and constitution page.
           </p>
-          <LinkButton href="/policies" className="mt-4">
-            Policies & Consitution
-          </LinkButton>
+
+          <Button as={Link} href="/policies" className="mt-4" color="primary">
+            See our Policies & Consitution
+          </Button>
         </div>
       </div>
 
@@ -157,16 +165,43 @@ function Components(): JSX.Element {
        * be exhibited on a card -- along with their custom set user profile picture, name,
        * email, and roles.
        */}
-      <div className="flex w-full flex-wrap items-start justify-start gap-4 sm:gap-7">
+      <div className="flex h-fit w-full flex-wrap items-start justify-start gap-4 sm:gap-7 xl:justify-end">
         {users
           // filter out the users with only one role
           .filter((user) => user.roles.length > 1)
           // sort the users by their roles
           .sort((a, b) => compareRoles(a.roles, b.roles))
           .map((user) => (
-            <MemberCard user={user} key={user.id} />
+            <UserCard user={user} key={user.id} />
           ))}
       </div>
     </MainWrapper>
+  );
+}
+
+function UserCard(props: { user: User }): JSX.Element {
+  return (
+    <div className="flex h-80 w-full flex-col items-center justify-center gap-2 rounded-lg border border-primary bg-secondary p-4 sm:max-w-64">
+      <Image
+        src={props.user.image}
+        alt={`Image of ${props.user.name}`}
+        className="h-28 w-28 rounded-full"
+        width={500}
+        height={500}
+      />
+
+      <div className="flex flex-col items-center justify-center text-center">
+        <h1 className="text-xl font-semibold text-white">{props.user.name}</h1>
+        <p className="text-sm font-thin text-white">{props.user.email}</p>
+
+        <div className="mt-3 flex flex-wrap items-center justify-center gap-1.5">
+          {props.user.roles.slice(1).map((role) => (
+            <p className="w-fit rounded-md border border-primary bg-emerald-950/50 px-2 py-1 text-xs font-thin text-white">
+              {role}
+            </p>
+          ))}
+        </div>
+      </div>
+    </div>
   );
 }
