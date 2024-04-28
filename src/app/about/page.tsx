@@ -14,6 +14,9 @@ import Link from "next/link";
 import Image from "next/image";
 import { type Status } from "@/types/global/status";
 
+// linktree fa icons
+import { FaExternalLinkAlt, FaInstagram, FaDiscord } from "react-icons/fa";
+
 /**
  * About page.
  *
@@ -92,7 +95,7 @@ function Components(): JSX.Element {
          * This is just a brief information section.
          */}
         <div className="flex w-full max-w-xl flex-col items-start justify-start gap-2 2xl:max-w-2xl">
-          <h1 className="text-left text-4xl font-extralight text-white md:text-6xl 2xl:text-7xl">
+          <h1 className="text-left text-4xl font-extrabold uppercase text-white md:text-6xl">
             <mark className="bg-transparent text-primary">Who</mark> is SOCIS?
           </h1>
           <p className="text-left font-thin text-white/80 2xl:text-lg">
@@ -101,14 +104,37 @@ function Components(): JSX.Element {
             at the University of Guelph.
           </p>
 
-          <Button as={Link} href="/policies" className="mt-4" color="primary">
-            See our Policies & Consitution
-          </Button>
-
           {/**
            * TODO: Add socials here.
            */}
-          <div className="flex flex-wrap gap-4"></div>
+          <div className="flex flex-wrap gap-4">
+            <a
+              href="https://www.instagram.com/socis.uog/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 hover:bg-white/20"
+            >
+              <FaInstagram className="btn h-6 w-6 text-white" />
+            </a>
+
+            <a
+              href="https://discord.com/invite/vhryqfkQ3u"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 hover:bg-white/20"
+            >
+              <FaDiscord className="btn h-6 w-6 text-white" />
+            </a>
+
+            <a
+              href="https://linktr.ee/socis"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 hover:bg-white/20"
+            >
+              <FaExternalLinkAlt className="btn h-6 w-6 p-1 text-white" />
+            </a>
+          </div>
         </div>
 
         {/**
@@ -117,7 +143,7 @@ function Components(): JSX.Element {
          * This is just a brief information section.
          */}
         <div className="flex w-full max-w-xl flex-col items-start justify-start 2xl:max-w-2xl">
-          <h1 className="text-left text-4xl font-extralight text-white md:text-6xl 2xl:text-7xl">
+          <h1 className="text-left text-4xl font-extrabold uppercase text-white md:text-6xl">
             <mark className="bg-transparent text-primary">What</mark> do we do?
           </h1>
 
@@ -135,7 +161,7 @@ function Components(): JSX.Element {
          * This is just a brief information section.
          */}
         <div className="flex w-full max-w-xl flex-col items-start justify-start 2xl:max-w-2xl">
-          <h1 className="text-left text-4xl font-extralight text-white md:text-6xl 2xl:text-7xl">
+          <h1 className="text-left text-4xl font-extrabold uppercase text-white md:text-6xl">
             <mark className="bg-transparent text-primary">Why</mark> do we do
             it?
           </h1>
@@ -146,6 +172,10 @@ function Components(): JSX.Element {
             innovate, network, and succeed because students are what make the
             University of Guelph great.
           </p>
+
+          <Button as={Link} href="/policies" className="mt-4" color="default">
+            See our Policies & Consitution
+          </Button>
         </div>
       </div>
 
