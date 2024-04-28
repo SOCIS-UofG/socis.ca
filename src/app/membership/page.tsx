@@ -7,6 +7,7 @@ import Navbar from "@/components/ui/global/Navbar";
 import Background from "@/components/ui/global/Background";
 import MainWrapper from "@/components/ui/global/MainWrapper";
 import { Button, NextUIProvider } from "@nextui-org/react";
+import Link from "next/link";
 
 /**
  * The main components for the membership page.
@@ -47,6 +48,7 @@ function Components(): JSX.Element {
 
         <div className="mx-7 mt-4 flex w-full flex-wrap items-center justify-center gap-4">
           <Button
+            as={Link}
             color="primary"
             href={config.default.socialsUrl}
             className="btn w-full sm:w-auto"
@@ -54,12 +56,14 @@ function Components(): JSX.Element {
             Follow our socials
           </Button>
           <Button
+            as={Link}
             href={config.default.emailSignUpUrl}
             className="btn w-full sm:w-auto"
           >
             Sign up for Updates
           </Button>
           <Button
+            as={Link}
             href={config.default.applyUrl}
             className="btn w-full sm:w-auto"
           >
