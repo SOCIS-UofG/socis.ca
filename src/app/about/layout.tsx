@@ -13,13 +13,35 @@ export const metadata: Metadata = {
   title: "SOCIS | About",
   description:
     "The Society of Computing and Information Science (SOCIS) is a student organization at the University of Guelph.",
-  viewport: {
-    width: "device-width",
-    height: "device-height",
-    initialScale: 1,
-    maximumScale: 1,
-    minimumScale: 1,
-  },
+  authors: [
+    {
+      name: "SOCIS",
+      url: "https://socis.ca",
+    },
+  ],
+  keywords: [
+    "socis",
+    "society",
+    "computing",
+    "information",
+    "science",
+    "uog",
+    "guelph",
+    "university",
+    "of",
+    "guelph",
+    "computer science",
+    "software engineering",
+    "data science",
+    "cybersecurity",
+    "web development",
+    "programming",
+    "club",
+    "student",
+    "organization",
+    "engineering",
+    "events",
+  ],
 };
 
 export default function RootLayout({

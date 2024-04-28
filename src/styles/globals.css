@@ -12,13 +12,14 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Selection color */
+/** Selection color */
 ::selection {
   background: #10b981;
+  color: #1f1f1f;
   opacity: 0.5;
 }
 
-/* Custom scroll bar */
+/** Custom scroll bar */
 ::-webkit-scrollbar {
   width: 10px;
 }
@@ -35,23 +36,37 @@ html {
   background: #10b981;
 }
 
-/* Pulsing stroke effect */
-.animate-text-outline-emerald {
-  animation: pulse 7s infinite ease-in-out;
-  color: #1f1f1f;
-  -webkit-text-stroke-width: 5px;
-  -webkit-animation: pulse 7s infinite ease-in-out;
-  -moz-animation: pulse 7s infinite ease-in-out;
-  -o-animation: pulse 7s infinite ease-in-out;
-  -ms-animation: pulse 7s infinite ease-in-out;
-}
-
-.text-outline-dark {
+/** Custom dark gray text stroke */
+.text-outline-secondary {
   color: #1f1f1f;
   -webkit-text-stroke-width: 5px;
   -webkit-text-stroke-color: #393939;
 }
 
+/** Pulsing emerald stroke effect */
+.animate-pulse-emerald {
+  animation: pulse 7s infinite ease-in-out;
+  color: #1f1f1f;
+  -webkit-text-stroke-width: 5px;
+  -webkit-animation: animate-pulse-emerald 7s infinite ease-in-out;
+  -moz-animation: animate-pulse-emerald 7s infinite ease-in-out;
+  -o-animation: animate-pulse-emerald 7s infinite ease-in-out;
+  -ms-animation: animate-pulse-emerald 7s infinite ease-in-out;
+}
+
+@keyframes animate-pulse-emerald {
+  0%,
+  100% {
+    -webkit-text-stroke-color: #393939;
+    opacity: 0.9;
+  }
+  50% {
+    -webkit-text-stroke-color: rgba(16, 185, 129, 0.5);
+    opacity: 1;
+  }
+}
+
+/** Fade in effect */
 .fade-in {
   animation: fadeIn ease 3s;
   -webkit-animation: fadeIn ease 3s;
@@ -66,20 +81,5 @@ html {
   }
   100% {
     opacity: 1;
-  }
-}
-
-@keyframes pulse {
-  0% {
-    -webkit-text-stroke-color: #393939;
-    opacity: 0.9;
-  }
-  50% {
-    -webkit-text-stroke-color: #10b981;
-    opacity: 1;
-  }
-  100% {
-    -webkit-text-stroke-color: #393939;
-    opacity: 0.9;
   }
 }

@@ -12,6 +12,29 @@ export const metadata: Metadata = {
   title: "SOCIS | Redirect",
   description:
     "The Society of Computing and Information Science (SOCIS) is a student organization at the University of Guelph.",
+  keywords: [
+    "socis",
+    "society",
+    "computing",
+    "information",
+    "science",
+    "uog",
+    "guelph",
+    "university",
+    "of",
+    "guelph",
+    "computer science",
+    "software engineering",
+    "data science",
+    "cybersecurity",
+    "web development",
+    "programming",
+    "club",
+    "student",
+    "organization",
+    "engineering",
+    "events",
+  ],
 };
 
 export default function RootLayout({

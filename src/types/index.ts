@@ -1,2 +1,2 @@
-export { Permission } from "./permission";
-export { Role } from "./role";
+export { Permission } from "./global/permission";
+export { Role } from "./global/role";

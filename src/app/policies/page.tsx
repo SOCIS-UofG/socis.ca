@@ -1,13 +1,13 @@
 "use client";
 
+import Background from "@/components/ui/global/Background";
+import CustomCursor from "@/components/ui/global/CustomCursor";
+import MainWrapper from "@/components/ui/global/MainWrapper";
+import Navbar from "@/components/ui/global/Navbar";
+import { Button } from "@nextui-org/button";
+import { NextUIProvider } from "@nextui-org/react";
+import Link from "next/link";
 import { BrowserView } from "react-device-detect";
-import {
-  Navbar,
-  CustomCursor,
-  MainWrapper,
-  LinkButton,
-  Background,
-} from "socis-components";
 
 /**
  * The main components for the policies page.
@@ -16,16 +16,16 @@ import {
  */
 export default function PoliciesPage() {
   return (
-    <>
+    <NextUIProvider>
       <Navbar />
-      <Background text="POLICIES" className="-z-10" />
+      <Background text="POLICIES" />
 
       <BrowserView>
         <CustomCursor />
       </BrowserView>
 
       <Components />
-    </>
+    </NextUIProvider>
   );
 }
 
@@ -44,29 +44,37 @@ function Components(): JSX.Element {
   ];
 
   return (
-    <MainWrapper className="z-40">
+    <MainWrapper className="relative z-40 flex min-h-screen w-screen flex-col items-center justify-center p-12 lg:p-24">
       <div className="flex flex-col items-center justify-center">
-        <h1 className="text-center text-7xl font-bold text-white md:text-8xl">
-          Policies
+        <h1 className="text-center text-6xl font-bold text-white sm:text-7xl md:text-8xl">
+          Our Policies
         </h1>
         <p className="mx-10 mt-2 text-center text-base font-light text-white/80 sm:w-[40rem]">
           Read our policies for more information on our constitution, club
-          space, committee and staff, makerspace, etc. We are committed to
-          providing a safe and inclusive environment for all members. If you
-          have any questions, please feel free to contact us.
+          space, committee and staff, makerspace, etc.
         </p>
 
-        <div className="mx-7 mt-6 flex flex-col items-center justify-center gap-4">
-          {files.map((file) => (
-            <LinkButton
+        <div className="mx-7 mt-6 flex w-full max-w-xl flex-col items-center justify-center gap-4">
+          {files.map((file, index) => (
+            <Button
+              as={Link}
+              color={index == 0 ? "primary" : "default"}
               href={`/policies/${file}`}
               className="w-full"
               key={file}
             >
               {file.split(".")[0]}
-            </LinkButton>
+            </Button>
           ))}
         </div>
+
+        <p className="mt-6 text-center text-base font-light text-white/80 sm:w-[40rem]">
+          We are committed to providing a safe and inclusive environment for all
+          members.{" "}
+          <mark className="bg-transparent text-primary">
+            If you have any questions, please feel free to contact us.
+          </mark>
+        </p>
       </div>
     </MainWrapper>
   );
