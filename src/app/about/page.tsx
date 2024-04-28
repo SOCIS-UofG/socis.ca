@@ -5,7 +5,7 @@ import { useEffect, useState, type JSX } from "react";
 import { trpc } from "@/lib/trpc/client";
 import { type User } from "next-auth";
 import { compareRoles } from "@/lib/utils/roles";
-import { Button, Spinner } from "@nextui-org/react";
+import { Button, NextUIProvider, Spinner } from "@nextui-org/react";
 import MainWrapper from "@/components/ui/global/MainWrapper";
 import Background from "@/components/ui/global/Background";
 import Navbar from "@/components/ui/global/Navbar";
@@ -20,7 +20,7 @@ import Image from "next/image";
  */
 export default function AboutPage(): JSX.Element {
   return (
-    <>
+    <NextUIProvider>
       <Navbar />
       <Background text="ABOUT" />
 
@@ -29,7 +29,7 @@ export default function AboutPage(): JSX.Element {
       </BrowserView>
 
       <Components />
-    </>
+    </NextUIProvider>
   );
 }
 

@@ -5,6 +5,7 @@ import CustomCursor from "@/components/ui/global/CustomCursor";
 import MainWrapper from "@/components/ui/global/MainWrapper";
 import Navbar from "@/components/ui/global/Navbar";
 import { Button } from "@nextui-org/button";
+import { NextUIProvider } from "@nextui-org/react";
 import Link from "next/link";
 import { BrowserView } from "react-device-detect";
 
@@ -15,7 +16,7 @@ import { BrowserView } from "react-device-detect";
  */
 export default function PoliciesPage() {
   return (
-    <>
+    <NextUIProvider>
       <Navbar />
       <Background text="POLICIES" />
 
@@ -24,7 +25,7 @@ export default function PoliciesPage() {
       </BrowserView>
 
       <Components />
-    </>
+    </NextUIProvider>
   );
 }
 

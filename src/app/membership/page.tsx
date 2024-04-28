@@ -6,7 +6,7 @@ import CustomCursor from "@/components/ui/global/CustomCursor";
 import Navbar from "@/components/ui/global/Navbar";
 import Background from "@/components/ui/global/Background";
 import MainWrapper from "@/components/ui/global/MainWrapper";
-import { Button } from "@nextui-org/react";
+import { Button, NextUIProvider } from "@nextui-org/react";
 
 /**
  * The main components for the membership page.
@@ -15,7 +15,7 @@ import { Button } from "@nextui-org/react";
  */
 export default function MembershipPage() {
   return (
-    <>
+    <NextUIProvider>
       <Navbar />
       <Background text="MEMBERSHIP" />
 
@@ -24,7 +24,7 @@ export default function MembershipPage() {
       </BrowserView>
 
       <Components />
-    </>
+    </NextUIProvider>
   );
 }
 
