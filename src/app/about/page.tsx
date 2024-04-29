@@ -95,7 +95,7 @@ function Components(): JSX.Element {
          * This is just a brief information section.
          */}
         <div className="flex w-full max-w-xl flex-col items-start justify-start gap-2 2xl:max-w-2xl">
-          <h1 className="text-left text-4xl font-extrabold uppercase text-white md:text-6xl">
+          <h1 className="text-left text-4xl font-extrabold tracking-wide text-white md:text-6xl">
             <mark className="bg-transparent text-primary">Who</mark> is SOCIS?
           </h1>
           <p className="text-left font-thin text-white/80 2xl:text-lg">
@@ -143,7 +143,7 @@ function Components(): JSX.Element {
          * This is just a brief information section.
          */}
         <div className="flex w-full max-w-xl flex-col items-start justify-start 2xl:max-w-2xl">
-          <h1 className="text-left text-4xl font-extrabold uppercase text-white md:text-6xl">
+          <h1 className="text-left text-4xl font-extrabold tracking-wide text-white md:text-6xl">
             <mark className="bg-transparent text-primary">What</mark> do we do?
           </h1>
 
@@ -161,7 +161,7 @@ function Components(): JSX.Element {
          * This is just a brief information section.
          */}
         <div className="flex w-full max-w-xl flex-col items-start justify-start 2xl:max-w-2xl">
-          <h1 className="text-left text-4xl font-extrabold uppercase text-white md:text-6xl">
+          <h1 className="text-left text-4xl font-extrabold tracking-wide text-white md:text-6xl">
             <mark className="bg-transparent text-primary">Why</mark> do we do
             it?
           </h1>
