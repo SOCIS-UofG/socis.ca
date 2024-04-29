@@ -6,6 +6,11 @@ const config = {
     "plugin:@next/next/recommended",
     "plugin:@typescript-eslint/stylistic-type-checked",
   ],
+  parserOptions: {
+    sourceType: "module",
+    tsconfigRootDir: __dirname,
+    project: ["./tsconfig.json"], // could be tsconfig.json too
+  },
   rules: {
     // These opinionated rules are enabled in stylistic-type-checked above.
     // Feel free to reconfigure them to your own preference.
