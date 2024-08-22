@@ -22,6 +22,8 @@ import Link from "next/link";
 import Logo from "./Logo";
 import { cn } from "@/lib/utils";
 
+const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000"
+
 export default function Navbar(): JSX.Element {
   // Set navbar background color to black on scroll
   useEffect(() => {
@@ -117,7 +119,7 @@ export default function Navbar(): JSX.Element {
         </NavbarBrand>
 
         <NavbarItem>
-          <NavbarButton href="https://socis.ca">HOME</NavbarButton>
+          <NavbarButton href={baseUrl}>HOME</NavbarButton>
         </NavbarItem>
 
         <NavbarItem>
@@ -125,11 +127,11 @@ export default function Navbar(): JSX.Element {
         </NavbarItem>
 
         <NavbarItem>
-          <NavbarButton href="https://socis.ca/about">ABOUT US</NavbarButton>
+          <NavbarButton href={`${baseUrl}/about`}>ABOUT US</NavbarButton>
         </NavbarItem>
 
         <NavbarItem>
-          <NavbarButton href="https://socis.ca/membership">
+          <NavbarButton href={`${baseUrl}/membership`}>
             MEMBERSHIP
           </NavbarButton>
         </NavbarItem>
@@ -151,7 +153,7 @@ export default function Navbar(): JSX.Element {
 
       <NavbarMenu className="z-[100] max-h-72 min-h-fit border-b-2 border-b-primary bg-secondary font-thin text-white md:hidden">
         <NavbarMenuItem>
-          <Link className="text-base hover:underline" href="https://socis.ca">
+          <Link className="text-base hover:underline" href={`${baseUrl}`}>
             Home
           </Link>
         </NavbarMenuItem>
@@ -166,7 +168,7 @@ export default function Navbar(): JSX.Element {
         <NavbarMenuItem>
           <Link
             className="text-base hover:underline"
-            href="https://socis.ca/about"
+            href={`${baseUrl}/about`}
           >
             About Us
           </Link>
@@ -174,7 +176,7 @@ export default function Navbar(): JSX.Element {
         <NavbarMenuItem>
           <Link
             className="text-base hover:underline"
-            href="https://socis.ca/membership"
+            href={`${baseUrl}/membership`}
           >
             Membership
           </Link>

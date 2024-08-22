@@ -68,6 +68,10 @@ function Components(): JSX.Element {
       });
   }, [fetchUsers]);
 
+  useEffect(() => {
+    console.log(users);
+  }, [users]);
+
   /**
    * If the fetch is still in progress, display a loading spinner.
    */

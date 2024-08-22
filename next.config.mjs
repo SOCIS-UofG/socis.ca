@@ -14,7 +14,7 @@ const config = {
 
   // enable domains
   images: {
-    domains: ["0qq6olfydjtmwubd.public.blob.vercel-storage.com"],
+    domains: ["0qq6olfydjtmwubd.public.blob.vercel-storage.com", "example.com", "socis.ca", "www.socis.ca"],
   },
 };
 
