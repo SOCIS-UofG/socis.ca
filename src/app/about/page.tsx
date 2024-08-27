@@ -13,6 +13,7 @@ import CustomCursor from "@/components/ui/global/CustomCursor";
 import Link from "next/link";
 import Image from "next/image";
 import { type Status } from "@/types/global/status";
+import { Filter } from "@/components/ui/other/Filter";
 
 // linktree fa icons
 import { FaExternalLinkAlt, FaInstagram, FaDiscord } from "react-icons/fa";
@@ -47,6 +48,11 @@ function Components(): JSX.Element {
 
   const [users, setUsers] = useState<User[]>([]);
   const [status, setStatus] = useState<Status>("idle");
+  const [yearsSelected, setYearsSelected] = useState<string[]>(["2023", "2024", "2025"]);
+
+  const handleSelectionChange = (selectedYears: string[]) => {
+    setYearsSelected(selectedYears);
+  };
 
   /**
    * Fetch the users (team members) from the database.
@@ -92,7 +98,7 @@ function Components(): JSX.Element {
        * Wrap the information sections in a div so that they stick together
        * with the flex wrap.
        */}
-      <div className="flex w-full max-w-xl flex-col items-start justify-start gap-10 xl:fixed xl:max-w-2xl">
+      <div className="flex w-full max-w-xl flex-col items-start justify-start gap-10 xl:max-w-2xl">
         {/**
          * Who we are section.
          *
@@ -190,15 +196,19 @@ function Components(): JSX.Element {
        * be exhibited on a card -- along with their custom set user profile picture, name,
        * email, and roles.
        */}
-      <div className="flex h-fit w-full flex-wrap items-start justify-start gap-4 sm:gap-7 xl:absolute xl:right-16 xl:w-1/2 xl:justify-end">
-        {users
-          // filter out the users with only one role
-          .filter((user) => user.roles.length > 1)
-          // sort the users by their roles
-          .sort((a, b) => compareRoles(a.roles, b.roles))
-          .map((user) => (
-            <UserCard user={user} key={user.id} />
-          ))}
+      <div className="flex h-fit w-full flex-col gap-4">
+        <Filter selectionTitle={"Year"} selectionOptions={["2023", "2024", "2025"]} onSelectionChange={handleSelectionChange} />
+        <div className="flex h-fit w-full flex-wrap items-start justify-start gap-4 sm:gap-7">
+          {users
+            // filter out the users with only one role
+            .filter((user) => user.roles.length > 1)
+            .filter((user) => user.roles.some(role => yearsSelected.includes(role)))
+            // sort the users by their roles
+            .sort((a, b) => compareRoles(a.roles, b.roles))
+            .map((user) => (
+              <UserCard user={user} key={user.id} />
+            ))}
+        </div>
       </div>
     </MainWrapper>
   );
