@@ -25,14 +25,6 @@ export const Filter = ({ selectionTitle, selectionOptions, defaultSelection=["Al
         }
     }, []);
 
-    const toggleSelection2 = (selection: string) => {
-        setSelected((prev) => {
-            const newSelection = prev.includes(selection) ? prev.filter((sel) => sel !== selection) : [...prev, selection];
-            onSelectionChange(newSelection);
-            return newSelection;
-        });
-    }
-
     const toggleSelection = (selection: string) => {
 
         const newSelection = selected.includes(selection)
@@ -45,24 +37,22 @@ export const Filter = ({ selectionTitle, selectionOptions, defaultSelection=["Al
     };
 
     return (
-        <div className="filters">
-            <div className="filters_year flex gap-4">
-                <span className="text-white">{selectionTitle}</span>
+            <div className="flex flex-row gap-4 items-center">
+                <span className="text-white w-20">{selectionTitle}:</span>
                 {selectionOptions.map((selection) => (
                     <button
                         key={selection}
                         onClick={() => toggleSelection(selection)}
                         className={`px-4 py-2 rounded-lg transition-all duration-300 
               ${selected.includes(selection)
-                                ? "bg-primary text-white"
-                                : "text-primary bg-background hover:opacity-60"
+                                ? "bg-primary text-white border-primary"
+                                : "text-primary bg-background border-background hover:border-primary"
                             } 
-              hover:bg-primary hover:text-white`}
+              border-1`}
                     >
                         {selection}
                     </button>
                 ))}
             </div>
-        </div>
     );
 };
