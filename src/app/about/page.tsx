@@ -48,8 +48,10 @@ function Components(): JSX.Element {
 
   const [users, setUsers] = useState<User[]>([]);
   const [status, setStatus] = useState<Status>("idle");
-  const [yearsSelected, setYearsSelected] = useState<string[]>(["2023", "2024", "2025"]);
 
+  const [rolesSelected, setRolesSelected] = useState<string[]>([]);
+  const [teamsSelected, setTeamsSelected] = useState<string[]>([]);
+  const [yearsSelected, setYearsSelected] = useState<string[]>([]);
   const handleSelectionChange = (selectedYears: string[]) => {
     setYearsSelected(selectedYears);
     console.log(selectedYears);
@@ -198,13 +200,15 @@ function Components(): JSX.Element {
        * email, and roles.
        */}
       <div className="flex h-fit w-full flex-col gap-4">
-        <Filter selectionTitle={"Roles"} selectionOptions={["President", "Vice President", "Member"]} onSelectionChange={handleSelectionChange} />
-        <Filter selectionTitle={"Teams"} selectionOptions={["Events", "Tech", "Comms", "External", "Internal", "Finance"]} onSelectionChange={handleSelectionChange} />
-        <Filter selectionTitle={"Year"} selectionOptions={["2023", "2024"]} defaultSelection={["2023"]} onSelectionChange={handleSelectionChange} />
+        <Filter selectionTitle={"Roles"} selectionOptions={["President", "Vice President", "Member"]} onSelectionChange={setRolesSelected} />
+        <Filter selectionTitle={"Teams"} selectionOptions={["Events", "Tech", "Comms", "External", "Internal", "Finance"]} defaultSelection={["Events"]} onSelectionChange={setTeamsSelected} />
+        <Filter selectionTitle={"Year"} selectionOptions={["2023", "2024"]} defaultSelection={["2023"]} onSelectionChange={setYearsSelected} />
         <div className="flex h-fit w-full flex-wrap items-start justify-start gap-4 sm:gap-7">
           {users
             .filter((user) => user.roles.length > 0)
             .filter((user) => user.roles.some(role => yearsSelected.includes(role)))
+            .filter((user) => user.roles.some(role => teamsSelected.includes(role)))
+            .filter((user) => user.roles.some(role => rolesSelected.includes(role)))
             // sort the users by their roles
             .sort((a, b) => compareRoles(a.roles, b.roles))
             .map((user) => (

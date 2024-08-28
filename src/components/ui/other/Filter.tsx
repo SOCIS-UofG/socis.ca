@@ -18,8 +18,10 @@ export const Filter = ({ selectionTitle, selectionOptions, defaultSelection=["Al
         
         if (isDefaultAll) {
             setSelected(selectionOptions);
+            onSelectionChange(selectionOptions);
         } else {
             setSelected(defaultSelection);
+            onSelectionChange(selectionOptions);
         }
     }, []);
 
