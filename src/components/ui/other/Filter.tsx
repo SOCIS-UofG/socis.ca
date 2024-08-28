@@ -9,6 +9,7 @@ interface FilterProps {
     onSelectionChange: (selectedYears: string[]) => void;
 }
 
+//This component returns one set of filters and it executes onSelectionChange(selected) in the parent component so the parent has access to all current selections
 export const Filter = ({ selectionTitle, selectionOptions, defaultSelection=["All"], onSelectionChange }: FilterProps): JSX.Element => {
     const [selected, setSelected] = useState<string[]>([]);
 
@@ -20,34 +21,43 @@ export const Filter = ({ selectionTitle, selectionOptions, defaultSelection=["Al
         } else {
             setSelected(defaultSelection);
         }
-    }, [defaultSelection, selectionOptions]);
+    }, []);
 
-    const toggleSelection = (year: string) => {
+    const toggleSelection2 = (selection: string) => {
+        setSelected((prev) => {
+            const newSelection = prev.includes(selection) ? prev.filter((sel) => sel !== selection) : [...prev, selection];
+            onSelectionChange(newSelection);
+            return newSelection;
+        });
+    }
 
-        const newSelection = selected.includes(year)
-            ? selected.filter((y) => y !== year)
-            : [...selected, year];
+    const toggleSelection = (selection: string) => {
+
+        const newSelection = selected.includes(selection)
+            ? selected.filter((y) => y !== selection)
+            : [...selected, selection];
         
         setSelected(newSelection);
         onSelectionChange(newSelection);
+        console.log(newSelection);
     };
 
     return (
         <div className="filters">
             <div className="filters_year flex gap-4">
                 <span className="text-white">{selectionTitle}</span>
-                {selectionOptions.map((year) => (
+                {selectionOptions.map((selection) => (
                     <button
-                        key={year}
-                        onClick={() => toggleSelection(year)}
+                        key={selection}
+                        onClick={() => toggleSelection(selection)}
                         className={`px-4 py-2 rounded-lg transition-all duration-300 
-              ${selected.includes(year)
+              ${selected.includes(selection)
                                 ? "bg-primary text-white"
-                                : "bg-white text-primary"
+                                : "text-primary bg-background hover:opacity-60"
                             } 
               hover:bg-primary hover:text-white`}
                     >
-                        {year}
+                        {selection}
                     </button>
                 ))}
             </div>

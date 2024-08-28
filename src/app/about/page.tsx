@@ -52,6 +52,7 @@ function Components(): JSX.Element {
 
   const handleSelectionChange = (selectedYears: string[]) => {
     setYearsSelected(selectedYears);
+    console.log(selectedYears);
   };
 
   /**
