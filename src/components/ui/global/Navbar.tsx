@@ -131,12 +131,6 @@ export default function Navbar(): JSX.Element {
         </NavbarItem>
 
         <NavbarItem>
-          <NavbarButton href={`${baseUrl}/membership`}>
-            MEMBERSHIP
-          </NavbarButton>
-        </NavbarItem>
-
-        <NavbarItem>
           <NavbarButton href="https://clubs.socis.ca">CLUBS</NavbarButton>
         </NavbarItem>
 
@@ -165,22 +159,16 @@ export default function Navbar(): JSX.Element {
             Events
           </Link>
         </NavbarMenuItem>
+        
         <NavbarMenuItem>
           <Link
             className="text-base hover:underline"
             href={`${baseUrl}/team`}
           >
-            TEAM
+            Team
           </Link>
         </NavbarMenuItem>
-        <NavbarMenuItem>
-          <Link
-            className="text-base hover:underline"
-            href={`${baseUrl}/membership`}
-          >
-            Membership
-          </Link>
-        </NavbarMenuItem>
+
         <NavbarMenuItem>
           <Link
             className="text-base hover:underline"
