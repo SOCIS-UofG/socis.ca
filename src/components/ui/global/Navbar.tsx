@@ -127,7 +127,7 @@ export default function Navbar(): JSX.Element {
         </NavbarItem>
 
         <NavbarItem>
-          <NavbarButton href={`${baseUrl}/about`}>ABOUT US</NavbarButton>
+          <NavbarButton href={`${baseUrl}/team`}>TEAM</NavbarButton>
         </NavbarItem>
 
         <NavbarItem>
@@ -168,9 +168,9 @@ export default function Navbar(): JSX.Element {
         <NavbarMenuItem>
           <Link
             className="text-base hover:underline"
-            href={`${baseUrl}/about`}
+            href={`${baseUrl}/team`}
           >
-            About Us
+            TEAM
           </Link>
         </NavbarMenuItem>
         <NavbarMenuItem>

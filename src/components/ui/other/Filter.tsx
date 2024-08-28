@@ -37,13 +37,13 @@ export const Filter = ({ selectionTitle, selectionOptions, defaultSelection=["Al
     };
 
     return (
-            <div className="flex flex-row gap-4 items-center">
+            <div className="flex flex-row gap-4 items-center flex-wrap">
                 <span className="text-white w-20">{selectionTitle}:</span>
                 {selectionOptions.map((selection) => (
                     <button
                         key={selection}
                         onClick={() => toggleSelection(selection)}
-                        className={`px-4 py-2 rounded-lg transition-all duration-300 
+                        className={`px-4 py-2 rounded-lg transition-all duration-300 text-nowrap
               ${selected.includes(selection)
                                 ? "bg-primary text-white border-primary"
                                 : "text-primary bg-background border-background hover:border-primary"
