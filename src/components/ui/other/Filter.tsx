@@ -51,7 +51,7 @@ export const Filter = ({ selectionTitle, selectionOptions, defaultSelection=["Al
                         key={selection}
                         onClick={() => toggleSelection(selection)}
                         className={`px-4 py-2 rounded-lg transition-all duration-300 
-              ${selected.includes(selection)
+              ${selected.includes(selection) || selected.length == 0
                                 ? "bg-primary text-white"
                                 : "text-primary bg-background hover:opacity-60"
                             } 

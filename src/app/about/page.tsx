@@ -198,11 +198,12 @@ function Components(): JSX.Element {
        * email, and roles.
        */}
       <div className="flex h-fit w-full flex-col gap-4">
-        <Filter selectionTitle={"Year"} selectionOptions={["2023", "2024", "2025"]} onSelectionChange={handleSelectionChange} />
+        <Filter selectionTitle={"Roles"} selectionOptions={["President", "Vice President", "Member"]} onSelectionChange={handleSelectionChange} />
+        <Filter selectionTitle={"Teams"} selectionOptions={["Events", "Tech", "Comms", "External", "Internal", "Finance"]} onSelectionChange={handleSelectionChange} />
+        <Filter selectionTitle={"Year"} selectionOptions={["2023", "2024"]} defaultSelection={["2023"]} onSelectionChange={handleSelectionChange} />
         <div className="flex h-fit w-full flex-wrap items-start justify-start gap-4 sm:gap-7">
           {users
-            // filter out the users with only one role
-            .filter((user) => user.roles.length > 1)
+            .filter((user) => user.roles.length > 0)
             .filter((user) => user.roles.some(role => yearsSelected.includes(role)))
             // sort the users by their roles
             .sort((a, b) => compareRoles(a.roles, b.roles))
