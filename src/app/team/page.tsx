@@ -27,7 +27,7 @@ export default function AboutPage(): JSX.Element {
   return (
     <NextUIProvider>
       <Navbar />
-      <Background text="ABOUT" />
+      <Background text="TEAM" />
 
       <BrowserView>
         <CustomCursor />
